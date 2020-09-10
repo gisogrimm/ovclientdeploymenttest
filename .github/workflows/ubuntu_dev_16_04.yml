@@ -1,4 +1,4 @@
-name: ovclient_xenial
+name: ovclient_xenial_dev
 
 on:
   push:
