@@ -7,6 +7,9 @@ on:
   schedule:
     - cron: '17 4 * * *'
 
+  workflow-dispatch:
+    
+
 jobs:
   build:
 
