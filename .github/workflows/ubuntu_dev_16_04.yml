@@ -1,11 +1,11 @@
 name: ovclient_xenial_dev
 
 on:
-  push:
-    branches: [ master ]
-
   schedule:
     - cron: '29 4 * * *'
+
+  workflow_dispatch:
+    
 
 jobs:
   build:

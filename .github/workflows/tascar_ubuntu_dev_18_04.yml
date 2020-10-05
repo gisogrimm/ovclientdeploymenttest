@@ -1,11 +1,11 @@
 name: 'TASCAR bionic_dev'
 
 on:
-  push:
-    branches: [ master ]
-
   schedule:
     - cron: '17 4 * * *'
+
+  workflow_dispatch:
+    
 
 jobs:
   build:
