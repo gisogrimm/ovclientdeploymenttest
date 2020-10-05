@@ -18,9 +18,12 @@ jobs:
     - name: htchrepo
       run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B7D6CDF547DA4ABD &&
            sudo apt-add-repository 'deb http://aptdev.hoertech.de/ bionic universe'
-    - name: tascar
+    - name: install_tascarpro
       run: sudo apt update &&
-           sudo apt install --assume-yes git tascarpro libtascar-dev
+           sudo apt install --assume-yes git tascarpro
+    - name: install_libtascardev
+      run: sudo apt update &&
+           sudo apt install --assume-yes git libtascar-dev
     - name: showversion
       run: dpkg-query -l tascarpro
     - name: run
