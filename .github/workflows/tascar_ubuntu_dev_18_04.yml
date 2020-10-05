@@ -1,4 +1,4 @@
-name: 'TASCAR focal_dev'
+name: 'TASCAR bionic_dev'
 
 on:
   push:
@@ -10,14 +10,14 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: fetchtags
       run: git fetch --unshallow --tags
     - name: htchrepo
       run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B7D6CDF547DA4ABD &&
-           sudo apt-add-repository 'deb http://aptdev.hoertech.de/ focal universe'
+           sudo apt-add-repository 'deb http://aptdev.hoertech.de/ bionic universe'
     - name: tascar
       run: sudo apt update &&
            sudo apt install --assume-yes git tascarpro libtascar-dev
