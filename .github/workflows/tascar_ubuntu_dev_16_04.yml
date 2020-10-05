@@ -1,13 +1,10 @@
 name: 'TASCAR xenial_dev'
 
 on:
-  push:
-    branches: [ master ]
-
   schedule:
     - cron: '17 4 * * *'
 
-  workflow-dispatch:
+  workflow_dispatch:
     
 
 jobs:
