@@ -18,5 +18,7 @@ jobs:
     - name: ovclient
       run: sudo apt update &&
            sudo apt install --assume-yes git ov-client
+    - name: showversion
+      run: dpkg-query -l ov-client
     - name: run
       run: ov-client & sleep 20;killall ov-client
