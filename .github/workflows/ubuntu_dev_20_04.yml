@@ -2,7 +2,7 @@ name: ovclient_focal_dev
 
 on:
   schedule:
-    - cron: '29 4 * * *'
+    - cron: '31 4 * * *'
 
   workflow_dispatch:
     
