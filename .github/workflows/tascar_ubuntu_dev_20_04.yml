@@ -2,7 +2,7 @@ name: 'TASCAR focal_dev'
 
 on:
   schedule:
-    - cron: '17 4 * * *'
+    - cron: '16 4 * * *'
 
   workflow_dispatch:
     
