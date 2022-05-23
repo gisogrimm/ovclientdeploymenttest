@@ -1,4 +1,4 @@
-name: 'TASCAR focal_dev'
+name: 'TASCAR jammy_dev'
 
 on:
   schedule:
