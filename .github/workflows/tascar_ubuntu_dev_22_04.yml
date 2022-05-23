@@ -1,0 +1,31 @@
+name: 'TASCAR focal_dev'
+
+on:
+  schedule:
+    - cron: '16 4 * * *'
+
+  workflow_dispatch:
+    
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: fetchtags
+      run: git fetch --unshallow --tags
+    - name: htchrepo
+      run: wget -qO- http://apt.hoertech.de/openmha-packaging.pub | sudo tee /etc/apt/trusted.gpg.d/openmha-packaging.asc &&
+           sudo apt-add-repository 'deb http://apt.hoertech.de/ jammy universe' &&
+           sudo apt-add-repository 'deb http://aptdev.hoertech.de/ jammy universe'
+    - name: install_tascarpro
+      run: sudo apt update &&
+           sudo apt install --assume-yes git tascarpro
+    - name: install_libtascardev
+      run: sudo apt update &&
+           sudo apt install --assume-yes git libtascar-dev
+    - name: showversion
+      run: dpkg-query -l tascarpro
+    - name: run
+      run: tascar_renderfile -h
