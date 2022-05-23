@@ -17,6 +17,7 @@ jobs:
       run: git fetch --unshallow --tags
     - name: htchrepo
       run: wget -qO- http://apt.hoertech.de/openmha-packaging.pub | sudo tee /etc/apt/trusted.gpg.d/openmha-packaging.asc &&
+           sudo apt-add-repository 'deb http://apt.hoertech.de/ jammy universe' &&
            sudo apt-add-repository 'deb http://aptdev.hoertech.de/ jammy universe'
     - name: ovclient
       run: sudo apt update &&
