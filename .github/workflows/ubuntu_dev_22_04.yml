@@ -1,0 +1,27 @@
+name: ovclient_jammy_dev
+
+on:
+  schedule:
+    - cron: '31 4 * * *'
+
+  workflow_dispatch:
+    
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: fetchtags
+      run: git fetch --unshallow --tags
+    - name: htchrepo
+      run: wget -qO- http://apt.hoertech.de/openmha-packaging.pub | sudo tee /etc/apt/trusted.gpg.d/openmha-packaging.asc &&
+           sudo apt-add-repository 'deb http://aptdev.hoertech.de/ jammy universe'
+    - name: ovclient
+      run: sudo apt update &&
+           sudo apt install --assume-yes git ov-client
+    - name: showversion
+      run: dpkg-query -l ov-client
+    - name: run
+      run: ov-client & sleep 20;killall ov-client
